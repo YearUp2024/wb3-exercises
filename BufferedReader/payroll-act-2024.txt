@@ -1,0 +1,9 @@
+id|name|gross pay
+134Dana Wyatt|734.375
+144Ezra Aiden|284.75
+154Brittany Thibbs|660.0
+164Zephaniah Hughes|20.0
+174Caylee Callahan|542.5
+184Zane Stephens|641.25
+194Maverick Cummings|420.75
+204Kamari Todd|464.0
