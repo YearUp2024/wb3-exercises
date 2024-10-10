@@ -12,9 +12,28 @@ public class StoreApp {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ListAllProduct();
-        LookupProductByID();
-        LookupProductByPriceRange();
+        System.out.println("What do you want to do?");
+        System.out.println("1- List all products");
+        System.out.println("2- Lookup a product by its id");
+        System.out.println("3- Find all products within a price range");
+        System.out.println("4- Add a new product");
+        System.out.println("5- Quit the application");
+        System.out.print("Enter command:");
+
+        int input = scanner.nextInt();
+        switch(input){
+            case 1:
+                ListAllProduct();
+                break;
+            case 2:
+                LookupProductByID();
+                break;
+            case 3:
+                LookupProductByPriceRange();
+                break;
+            case 5:
+                break;
+        }
     }
 
     /**
@@ -53,19 +72,21 @@ public class StoreApp {
      * Lookup product by price range
      */
     public static void LookupProductByPriceRange(){
-        System.out.println("Enter a product ID: ");
-        double price = scanner.nextDouble();
+        System.out.println("Enter the minimum price: ");
+        double minPrice = scanner.nextDouble();
+
+        System.out.println("Enter the maximum price: ");
+        double maxPrice = scanner.nextDouble();
 
         boolean foundProduct = false;
-        for(Product product : inventory){
-            if(product.getPrice() == price){
-                System.out.printf("Product ID: %d\nName: %s\nPrice: %.2f", product.getId(), product.getName(), product.getPrice());
+        for (Product i : inventory){
+            if (i.getPrice() <= maxPrice && i.getPrice() >= minPrice){
+                System.out.printf("id: %d %s - Price: $%.2f\n",i.getId(), i.getName(), i.getPrice());
                 foundProduct = true;
-                break;
             }
         }
         if(!foundProduct){
-            System.out.println("Product was not found");
+            System.out.println("No Products available at the price range!");
         }
     }
 
