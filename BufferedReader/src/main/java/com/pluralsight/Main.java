@@ -24,7 +24,7 @@ public class Main {
             String name = tokes[1];
             float hoursWorked = Float.parseFloat(tokes[2]);
             float payRate = Float.parseFloat(tokes[3]);
-            
+
             Employee theEmp = new Employee(employeeId, name, hoursWorked, payRate);
             displayEmplouee(theEmp);
 
