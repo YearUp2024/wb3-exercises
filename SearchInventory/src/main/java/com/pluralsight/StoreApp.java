@@ -31,6 +31,9 @@ public class StoreApp {
             case 3:
                 LookupProductByPriceRange();
                 break;
+            case 4:
+                AddNewProduct();
+                break;
             case 5:
                 break;
         }
@@ -93,7 +96,24 @@ public class StoreApp {
     /**
      * Add new product into product list.
      */
-    public static void AddNewProduct(){}
+    public static void AddNewProduct(){
+        System.out.println("Welcome to Add New Product Application");
+
+        System.out.print("Please Enter an ID Number: ");
+        int productId = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Please Enter the Product name: ");
+        String productName = scanner.nextLine();
+
+        System.out.print("Please Enter the Price: ");
+        float productPrice = scanner.nextFloat();
+
+        Product p = new Product(productId, productName, productPrice);
+        inventory.add(p);
+
+        System.out.println("Product added successfully!");
+    }
 
     public static ArrayList<Product> getInventory() {
         ArrayList<Product> inventory = new ArrayList<Product>();
