@@ -3,20 +3,44 @@ package com.pluralsight;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class StoreApp {
+    public static ArrayList<Product> inventory = getInventory();
+    static Scanner scanner = new Scanner(System.in);
+    
     public static void main(String[] args) {
-        ArrayList<Product> inventory = getInventory();
-        Scanner scanner = new Scanner(System.in);
+        ListAllProduct();
+    }
+
+    /**
+     * List all product in the list
+     */
+    public static void ListAllProduct(){
         System.out.println("We carry the following inventory: ");
         for (int i = 0; i < inventory.size(); i++) {
             Product p = inventory.get(i);
-            System.out.printf(" id: %d %s\n - Price: $%.2f",
+            System.out.printf(" id: %d %s - Price: $%.2f\n",
                     p.getId(), p.getName(), p.getPrice());
         }
     }
+
+    /**
+     * Display Product detail by ID
+     */
+    public static void LookupProductByID(){}
+
+    /**
+     * Lookup product by price range
+     */
+    public static void LookupProductByPriceRange(){}
+
+    /**
+     * Add new product into product list.
+     */
+    public static void AddNewProduct(){}
 
     public static ArrayList<Product> getInventory() {
         ArrayList<Product> inventory = new ArrayList<Product>();
