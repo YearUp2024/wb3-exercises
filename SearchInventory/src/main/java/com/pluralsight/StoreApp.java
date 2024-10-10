@@ -10,9 +10,11 @@ import java.util.regex.Pattern;
 public class StoreApp {
     public static ArrayList<Product> inventory = getInventory();
     static Scanner scanner = new Scanner(System.in);
-    
+
     public static void main(String[] args) {
         ListAllProduct();
+        LookupProductByID();
+        LookupProductByPriceRange();
     }
 
     /**
@@ -30,12 +32,42 @@ public class StoreApp {
     /**
      * Display Product detail by ID
      */
-    public static void LookupProductByID(){}
+    public static void LookupProductByID(){
+        System.out.println("Enter a product ID: ");
+        short id = scanner.nextShort();
+
+        boolean foundProduct = false;
+        for(Product product : inventory){
+            if(product.getId() == id){
+                System.out.printf("Product ID: %d\nName: %s\nPrice: %.2f\n", product.getId(), product.getName(), product.getPrice());
+                foundProduct = true;
+                break;
+            }
+        }
+        if(!foundProduct){
+            System.out.println("Product was not found");
+        }
+    }
 
     /**
      * Lookup product by price range
      */
-    public static void LookupProductByPriceRange(){}
+    public static void LookupProductByPriceRange(){
+        System.out.println("Enter a product ID: ");
+        double price = scanner.nextDouble();
+
+        boolean foundProduct = false;
+        for(Product product : inventory){
+            if(product.getPrice() == price){
+                System.out.printf("Product ID: %d\nName: %s\nPrice: %.2f", product.getId(), product.getName(), product.getPrice());
+                foundProduct = true;
+                break;
+            }
+        }
+        if(!foundProduct){
+            System.out.println("Product was not found");
+        }
+    }
 
     /**
      * Add new product into product list.
